@@ -1,0 +1,54 @@
+Python programming:
+
+import random
+
+logo = ''' ██████  ██    ██ ███████ ███████ ███████ ██ ███    ██  ██████       ██████   █████  ███    ███ ███████     ██ 
+██       ██    ██ ██      ██      ██      ██ ████   ██ ██           ██       ██   ██ ████  ████ ██          ██ 
+██   ███ ██    ██ █████   ███████ ███████ ██ ██ ██  ██ ██   ███     ██   ███ ███████ ██ ████ ██ █████       ██ 
+██    ██ ██    ██ ██           ██      ██ ██ ██  ██ ██ ██    ██     ██    ██ ██   ██ ██  ██  ██ ██             
+ ██████   ██████  ███████ ███████ ███████ ██ ██   ████  ██████       ██████  ██   ██ ██      ██ ███████     ██ '''
+
+def count_attemps(attemps):
+  guess = int(input("Make a guess: "))
+  while not attemps == 0:
+    if attemps == 0:
+      print(f"Sorry.. you lose, the number was {number}")
+    elif guess == number:
+      print(f"You got it! the chosen number is {number}")
+      attemps = 0
+    elif guess > number:
+      print("Your guess is too high\n")
+      attemps -=  1 
+      if attemps == 0:
+        print(f"You've run out of guesses, you lose.. the number was {number} ")
+      else:  
+        print(f"You have {attemps} attemps remaining to guess the number. ")
+        guess = int(input("Please guess again:  ")) 
+    elif guess < number:
+      print("Your guess is too low..\n")
+      attemps -=  1 
+      if attemps == 0:
+        print(f"You've run out of guesses, you lose.. the number was {number}")
+      else:  
+        print(f"You have {attemps} attemps remaining to guess the number. ")
+        guess = int(input("Please guess again:  ")) 
+
+
+
+print(f"{logo} \n\nWalcome to the Number Guessing Game! \nI'm thinking of a number between 1 - 100 \nand you need to guess this number. \n\nAre you ready?? ")
+difficulty = input("Please choose a difficulty level, type 'easy' or 'hard' \n").lower()
+
+if difficulty == "easy":
+  attemps = 10
+  print(f"You have {attemps} attemps remaining to guess the number. ")
+  number = random.randint(1,101)
+  count_attemps(attemps = attemps)
+elif difficulty == "hard":
+  attemps = 5
+  print(f"You have {attemps} attemps remaining to guess the number. ")
+  number = random.randint(1,101)
+  count_attemps(attemps = attemps)
+  
+ 
+  
+ 
